@@ -1,0 +1,31 @@
+<section id="certificates" class="section">
+  <h2 class="bg-danger text-white p-2 mb-4 rounded">Certificates</h2>
+  {% for certificate in certificates %}
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">{{ certificate.title }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">
+        Issued by {{ certificate.given_by }}
+      </h6>
+      {% if certificate.score and certificate.out_of %}
+      <p class="card-text">
+        Score: {{ certificate.score }} / {{ certificate.out_of }}
+      </p>
+      {% endif %}
+      <p class="card-text">Achieved on: {{ certificate.date_achieved }}</p>
+      <p class="card-text">
+        {% if certificate.date_expire %} Expires on: {{certificate.date_expire}}
+        {% else %} Does not expire {% endif %}
+      </p>
+      {% if certificate.url %}
+      <a
+        href="{{ certificate.url }}"
+        class="btn btn-sm btn-outline-danger"
+        target="_blank"
+        >Certificate Details</a
+      >
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</section>

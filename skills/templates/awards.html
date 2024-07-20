@@ -1,0 +1,22 @@
+<section id="awards" class="section">
+  <h2 class="bg-warning text-white p-2 mb-4 rounded">Awards</h2>
+  {% for award in awards %}
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">{{ award.title }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">
+        Given by {{ award.given_by }} on {{ award.given_date }}
+      </h6>
+      <p class="card-text">{{ award.description }}</p>
+      {% if award.link %}
+      <a
+        href="{{ award.link }}"
+        class="btn btn-sm btn-outline-warning"
+        target="_blank"
+        >Award Details</a
+      >
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</section>

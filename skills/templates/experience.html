@@ -1,0 +1,35 @@
+<section id="experience" class="section">
+  <h2 class="bg-success text-white p-2 mb-4 rounded">Experience</h2>
+  {% for exp in experiences %}
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">{{ exp.title }} at {{ exp.company }}</h5>
+      <p class="card-text"><strong>Country:</strong> {{ exp.country }}</p>
+      <h6 class="card-subtitle mb-2 text-muted">
+        {{ exp.start_date }} - {{ exp.end_date|default:"Present" }}
+      </h6>
+      <p class="card-text">{{ exp.description }}</p>
+      <div class="mb-2">
+        {% for skill in exp.skills.all %}
+        <span class="btn btn-sm btn-outline-success me-1 mb-1"
+          >{{ skill.title }}</span
+        >
+        {% endfor %}
+      </div>
+      <div>
+        {% for tool in exp.tools.all %}
+        <span class="badge bg-secondary me-1">{{ tool.title }}</span>
+        {% endfor %}
+      </div>
+      {% if exp.company_links %}
+      <a
+        href="{{ exp.company_links }}"
+        class="btn btn-sm btn-outline-primary mt-2"
+        target="_blank"
+        >Company Website</a
+      >
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</section>

@@ -1,0 +1,31 @@
+<section id="education" class="section">
+  <h2 class="bg-info text-white p-2 mb-4 rounded">Education</h2>
+  {% for edu in education %}
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">{{ edu.major }} at {{ edu.institute }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">
+        {{ edu.type }} | {{ edu.start_year }} - {{ edu.end_year }}
+      </h6>
+      <p class="card-text"><strong>Country:</strong> {{ edu.country }}</p>
+      <p class="card-text"><strong>Focus:</strong> {{ edu.focus }}</p>
+      <p class="card-text">
+        <strong>Main Courses:</strong> {{ edu.main_courses }}
+      </p>
+      <p class="card-text">
+        <strong>Languages:</strong> {{ edu.edu_languages }}
+      </p>
+      {% if edu.grade %}
+      <p class="card-text"><strong>Grade:</strong> {{ edu.grade }}</p>
+      {% endif %} {% if edu.diploma_url %}
+      <a
+        href="{{ edu.diploma_url }}"
+        class="btn btn-sm btn-outline-info"
+        target="_blank"
+        >View Diploma</a
+      >
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</section>

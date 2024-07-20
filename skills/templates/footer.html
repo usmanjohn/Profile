@@ -1,0 +1,58 @@
+<footer class="bg-light mt-5 py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h4 class="fancy-font">Feel Free to Contact Me</h4>
+        <p>
+          I'm always open to new opportunities and collaborations as well as
+          relocation. Don't hesitate to reach out!
+        </p>
+      </div>
+      <div class="col-md-6">
+        <h4 class="fancy-font">Contact Information</h4>
+        <ul class="list-unstyled">
+          <li>
+            <i class="bi bi-envelope"></i>
+            <a href="mailto:{{ owner.email }}">{{ owner.email }}</a>
+          </li>
+          {% if owner.phone %}
+          <li><i class="bi bi-telephone"></i> {{ owner.phone }}</li>
+          {% endif %}
+          <li><i class="bi bi-geo-alt"></i> {{ owner.location }}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-12 text-center">
+        <a
+          href="{{ owner.linkedin_url }}"
+          class="btn btn-outline-primary me-2"
+          target="_blank"
+          ><i class="bi bi-linkedin"></i> LinkedIn</a
+        >
+        <a
+          href="{{ owner.github_url }}"
+          class="btn btn-outline-dark me-2"
+          target="_blank"
+          ><i class="bi bi-github"></i> GitHub</a
+        >
+        {% if owner.twitter_url %}
+        <a
+          href="{{ owner.twitter_url }}"
+          class="btn btn-outline-info"
+          target="_blank"
+          ><i class="bi bi-twitter"></i> Twitter</a
+        >
+        {% endif %}
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-12 text-center">
+        <small
+          >&copy; {% now "Y" %} {{ owner.name }} {{ owner.family_name }}. All
+          rights reserved.</small
+        >
+      </div>
+    </div>
+  </div>
+</footer>

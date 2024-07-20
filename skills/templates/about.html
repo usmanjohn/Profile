@@ -1,0 +1,146 @@
+<section id="about" class="section">
+  <h2 class="bg-primary text-white p-2 mb-4 rounded fancy-font">About Me</h2>
+  <a href="{{ owner.resume }}" class="btn btn-primary" download>
+    <i class="bi bi-download"></i> Download CV
+  </a>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card mb-4 card-hover">
+        <div class="card-body">
+          <h3 class="card-title fancy-font">Professional Summary</h3>
+          <p class="lead">
+            Passionate about turning data into actionable insights and building
+            robust backend systems. With a keen eye for patterns and a love for
+            problem-solving, I bring a unique blend of analytical thinking and
+            technical expertise to every project. As a
+            <strong>Python backend developer</strong>, <em>data analyst</em>,
+            and <u>machine learning enthusiast</u>, I'm committed to providing
+            data-driven solutions for strategic decision-making.
+          </p>
+          <p>
+            My journey in the world of data and development has been driven by
+            an insatiable curiosity and a desire to make a meaningful impact.
+            From crunching numbers to crafting efficient algorithms, I thrive on
+            the challenges that come with working at the intersection of data
+            science and software development.
+          </p>
+          <p>
+            With a <strong>Techno MBA from KAIST</strong> and experience in both
+            <em>Uzbekistan and South Korea</em>, I bring a unique perspective to
+            data analysis and business intelligence. My proficiency in tools
+            like
+            <strong
+              >Django, Flask, Pandas, NumPy, Plotly Dash, Scikit-Learn, and
+              Tableau</strong
+            >
+            allows me to tackle complex data sets and convert them into
+            practical insights.
+          </p>
+          <p>
+            As a <u>Kaggle Notebook Expert</u> and creator of interactive
+            platforms like <strong>KoTrain</strong>, I've demonstrated my
+            ability to apply data analysis and science knowledge to real-world
+            problems. Whether it's developing interactive dashboards, conducting
+            risk assessments, or optimizing database management, I'm always
+            eager to leverage my skills to find innovative solutions.
+          </p>
+          <p>
+            My goal is to be a valuable asset to any team, bringing my diverse
+            skill set and international experience to drive data-informed
+            decisions and create impactful solutions.
+          </p>
+        </div>
+      </div>
+      <div class="card mb-4 card-hover">
+        <div class="card-body">
+          <h3 class="card-title fancy-font">Key Strengths</h3>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              Advanced data analysis and visualization
+            </li>
+            <li class="list-group-item">
+              Machine learning model development and deployment
+            </li>
+            <li class="list-group-item">
+              Scalable backend architecture design
+            </li>
+            <li class="list-group-item">
+              Database optimization and management
+            </li>
+            <li class="list-group-item">
+              Cloud computing and big data technologies
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-4 card-hover">
+        <div class="card-body">
+          <h3 class="card-title fancy-font">Personal Info</h3>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <strong>Name:</strong> {{ owner.name }} {{ owner.family_name }}
+            </li>
+            <li class="list-group-item">
+              <strong>Birth Date:</strong> {{ owner.birth_date|date:"F d, Y" }}
+            </li>
+            <li class="list-group-item">
+              <strong>Marital Status:</strong> {{ owner.marital_status }}
+            </li>
+            <li class="list-group-item">
+              <strong>Location:</strong> Currently in South Korea, open to
+              relocation
+            </li>
+            <li class="list-group-item">
+              <strong>Programming Languages:</strong> {{ owner.languages }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="card mb-4 card-hover">
+        <div class="card-body">
+          <h3 class="card-title fancy-font">Quick Facts</h3>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <strong>Years of Experience:</strong>
+              ~{{ owner.years_of_experience }}
+            </li>
+            <li class="list-group-item">
+              <strong>Projects Completed:</strong>
+              {{ owner.projects_completed }}+
+            </li>
+            <li class="list-group-item">
+              <strong>Favorite Tools:</strong> {{ owner.favorite_tools }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="card mb-4 card-hover">
+        <div class="card-body">
+          <h3 class="card-title fancy-font">Connect with me</h3>
+          <div class="d-grid gap-2">
+            <a
+              href="{{ owner.github_url }}"
+              class="btn btn-outline-dark"
+              target="_blank"
+              ><i class="bi bi-github"></i> GitHub</a
+            >
+            <a
+              href="{{ owner.linkedin_url }}"
+              class="btn btn-outline-primary"
+              target="_blank"
+              ><i class="bi bi-linkedin"></i> LinkedIn</a
+            >
+            <a
+              href="{{ owner.kaggle_url }}"
+              class="btn btn-outline-info"
+              target="_blank"
+              ><i class="bi bi-bar-chart-line"></i> Kaggle</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

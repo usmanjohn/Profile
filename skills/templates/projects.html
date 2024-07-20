@@ -1,0 +1,40 @@
+<section id="projects" class="section">
+  <h2 class="bg-primary text-white p-2 mb-4 rounded">Projects</h2>
+  <div class="row">
+    {% for project in projects %}
+    <div class="col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{ project.title }}</h5>
+          <p class="card-text flex-grow-1">{{ project.description }}</p>
+          <div class="mt-auto">
+            <div class="mb-2">
+              {% for skill in project.skills.all %}
+              <span class="btn btn-sm btn-outline-primary me-1 mb-1"
+                >{{ skill.title }}</span
+              >
+              {% endfor %}
+            </div>
+            <div>
+              {% for tool in project.tools.all %}
+              <span class="badge bg-secondary me-1">{{ tool.title }}</span>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        {% if project.project_links %}
+        <div class="card-footer">
+          <a
+            href="{{ project.project_links }}"
+            class="btn btn-sm btn-primary"
+            target="_blank"
+          >
+            <i class="bi bi-link-45deg"></i> Project Link
+          </a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
