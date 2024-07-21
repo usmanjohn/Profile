@@ -36,6 +36,7 @@ class Certificate(models.Model):
     paper = models.FileField(upload_to='certificates', null=True, blank=True)
     image = models.ImageField(upload_to='certificate_img', null=True, blank=True)
     url = models.URLField(null=True, blank=True)
+    icon = models.ImageField(null=True, blank=True, upload_to='profile_icon')
 
     
     def __str__(self) -> str:
@@ -46,6 +47,7 @@ class Skill(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(max_length=2000)
     certificate = models.ForeignKey(Certificate, on_delete=models.SET_NULL, null=True, blank=True)
+    icon = models.ImageField(null=True, blank=True, upload_to='profile_icon')
     
     def __str__(self) -> str:
         return self.title
@@ -55,6 +57,7 @@ class Tool(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(max_length=400)
     used_years = models.DecimalField(max_digits=4, decimal_places=1)
+    icon = models.ImageField(null=True, blank=True, upload_to='profile_icon')
     
     def __str__(self) -> str:
         return self.title
@@ -69,6 +72,7 @@ class Project(models.Model):
     project_links = models.URLField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    icon = models.ImageField(null=True, blank=True, upload_to='profile_icon')
     
     def __str__(self) -> str:
         return self.title
@@ -101,6 +105,7 @@ class Education(models.Model):
     diploma_url = models.URLField(null=True, blank=True)
     image = models.ImageField(upload_to='diploma_img')
     projects = models.ManyToManyField(Project, blank=True)
+    icon = models.ImageField(null=True, blank=True, upload_to='profile_icon')
     
     def __str__(self) -> str:
         return self.institute
@@ -122,6 +127,7 @@ class Experience(models.Model):
     salary = models.DecimalField(max_digits=5, decimal_places=1, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    icon = models.ImageField(null=True, blank=True, upload_to='profile_icon')
 
     def __str__(self) -> str:
         return self.title
@@ -143,6 +149,7 @@ class Interest(models.Model):
     description = models.TextField(max_length=400)
     link = models.URLField(null=True, blank=True)
     type = models.CharField(max_length=20, choices=INTEREST_TYPES)
+    icon = models.ImageField(null=True, blank=True, upload_to='profile_icon')
 
     def __str__(self) -> str:
         return self.title
@@ -157,6 +164,7 @@ class Volunteer(models.Model):
     end_date = models.DateField(null=True, blank=True)
     tools = models.ManyToManyField(Tool)
     skills = models.ManyToManyField(Skill)
+    icon = models.ImageField(null=True, blank=True, upload_to='profile_icon')
     def __str__(self) -> str:
         return self.title
 
@@ -169,6 +177,7 @@ class Awards(models.Model):
     given_date = models.DateField(null=True, blank=True)
     img = models.ImageField(null=True, blank=True, upload_to='awards')
     link = models.URLField(null=True, blank=True)
+    icon = models.ImageField(null=True, blank=True, upload_to='profile_icon')
 
     def __str__(self) -> str:
         return self.title
@@ -178,10 +187,12 @@ class Cando(models.Model):
     action = models.CharField(max_length=100)
     tool_to_use = models.ForeignKey(Tool, on_delete=models.SET_NULL, null=True, blank=True)
     description = models.TextField(max_length=300)
+    icon = models.ImageField(null=True, blank=True, upload_to='profile_icon')
 
     def __str__(self) -> str:
         return self.action
 
 class Languages(models.Model):
     title = models.CharField(max_length=100)
+    icon = models.ImageField(null=True, blank=True, upload_to='profile_icon')
     
