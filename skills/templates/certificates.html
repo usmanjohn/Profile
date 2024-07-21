@@ -14,9 +14,17 @@
       {% endif %}
       <p class="card-text">Achieved on: {{ certificate.date_achieved }}</p>
       <p class="card-text">
-        {% if certificate.date_expire %} Expires on: {{certificate.date_expire}}
-        {% else %} Does not expire {% endif %}
-      </p>
+        {% if certificate.date_expire %}
+            {% now "Y-m-d" as today %}
+            {% if certificate.date_expire|date:"Y-m-d" < today %}
+                Expired on: {{ certificate.date_expire }}
+            {% else %}
+                Expires on: {{ certificate.date_expire }}
+            {% endif %}
+        {% else %}
+            Does not expire
+        {% endif %}
+    </p>
       {% if certificate.url %}
       <a
         href="{{ certificate.url }}"
