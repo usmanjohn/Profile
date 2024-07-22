@@ -11,6 +11,7 @@ class Owner(models.Model):
     kaggle_url = models.URLField(null=True, blank=True)
     youtube_url = models.URLField(null=True, blank=True)
     other_url = models.URLField(null=True, blank=True)
+    linkedin_url = models.URLField(null=True, blank=True)
 
     marital_status = models.CharField(max_length=20, blank=True)
     languages = models.CharField(max_length=200, blank=True)
